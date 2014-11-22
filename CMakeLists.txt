@@ -53,6 +53,7 @@ set(EXAMPLEB2A_SCRIPTS
   vis.mac
   run1.mac
   run2.mac
+  x_run.mac
   )
 
 foreach(_script ${EXAMPLEB2A_SCRIPTS})

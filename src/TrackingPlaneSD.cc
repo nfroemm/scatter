@@ -51,8 +51,6 @@ G4bool TrackingPlaneSD::ProcessHits(G4Step* aStep, G4TouchableHistory*)
   G4ThreeVector mom    = aStep->GetPostStepPoint()->GetMomentum();
   G4double      pmag   = mom.mag();
 
-  G4cout << pmag << G4endl;
-
   // Convert momentum to beam-optical
   G4double xp, yp, dpp;
   if ( (name=="mu+") || (name=="mu-") ) {

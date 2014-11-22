@@ -15,15 +15,17 @@
 G4ThreadLocal G4GlobalMagFieldMessenger* DetectorConstruction::fMagFieldMessenger = 0;
 
 DetectorConstruction::DetectorConstruction()
-:G4VUserDetectorConstruction(), 
- targetMaterial_("G4_Cu"),
- targetThickness_( 3.*mm),
- Target_L(0),
- fNbOfChambers(0),
- fLogicTarget(0),
- fLogicChamber(0), 
- fTargetMaterial(0),
- fStepLimit(0)
+: G4VUserDetectorConstruction(), 
+//targetMaterial_("G4_Cu"),
+//targetMaterial_("G4_Al"),
+  targetMaterial_("G4_GRAPHITE"),
+  targetThickness_(20.*mm),
+  Target_L(0),
+  fNbOfChambers(0),
+  fLogicTarget(0),
+  fLogicChamber(0), 
+  fTargetMaterial(0),
+  fStepLimit(0)
 {
   fNbOfChambers = 1;
   fLogicChamber = new G4LogicalVolume*[fNbOfChambers];
