@@ -51,9 +51,7 @@ set(EXAMPLEB2A_SCRIPTS
   init.mac
   init_vis.mac
   vis.mac
-  run1.mac
-  run2.mac
-  x_run.mac
+  run.mac
   )
 
 foreach(_script ${EXAMPLEB2A_SCRIPTS})
@@ -64,9 +62,8 @@ foreach(_script ${EXAMPLEB2A_SCRIPTS})
     )
 endforeach()
 
-#add_subdirectory(root)
-#add_subdirectory(root/scripts)
-#set(ROOT_SCRIPTS asdf)
+# Create a directory for root output
+execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory root)
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX

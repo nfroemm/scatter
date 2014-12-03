@@ -19,11 +19,10 @@ class DetectorMessenger: public G4UImessenger
     virtual void SetNewValue(G4UIcommand*,G4String);
     
   private:
-    DetectorConstruction*  fDetectorConstruction;
-
-    G4UIdirectory*             fB2Directory;
-    G4UIdirectory*             fDetDirectory;
-    G4UIcmdWithAString*        fTargMatCmd;
+    DetectorConstruction*      fDetectorConstruction;
+    G4UIdirectory*             fSimDirectory;
+    G4UIcmdWithAString*        fTargetMaterialCmd;
+    G4UIcmdWithADoubleAndUnit* fTargetThicknessCmd;
     G4UIcmdWithADoubleAndUnit* fStepMaxCmd;
 };
 

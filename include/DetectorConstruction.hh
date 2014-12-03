@@ -11,7 +11,9 @@ class G4Material;
 class G4UserLimits;
 class G4GlobalMagFieldMessenger;
 
+class TrackingPlaneSD;
 class DetectorMessenger;
+
 
 class DetectorConstruction : public G4VUserDetectorConstruction
 {
@@ -24,7 +26,7 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     virtual void ConstructSDandField();
 
     void SetTargetMaterial  (G4String);
-    void SetChamberMaterial (G4String);
+    void SetTargetThickness (G4double);
     void SetMaxStep         (G4double);
 
   private:
@@ -35,9 +37,9 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     G4String targetMaterial_;
     G4double targetThickness_;
     G4LogicalVolume* Target_L;
+    TrackingPlaneSD* trackingPlaneSD_;
     //
     G4int              fNbOfChambers;   // number of tracking chambers (not implemented yet)
-    G4LogicalVolume*   fLogicTarget;    // pointer to the logical Target
     G4LogicalVolume**  fLogicChamber;   // pointer to the logical Chamber
     G4Material*        fTargetMaterial; // pointer to the target  material
     G4UserLimits*      fStepLimit;      // pointer to user step limits

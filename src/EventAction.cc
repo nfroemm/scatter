@@ -1,11 +1,10 @@
 #include "EventAction.hh"
-
 #include "G4Event.hh"
+
+#include "G4RunManager.hh"
+#include "G4EventManager.hh"
 #include "G4SDManager.hh"
 
-
-
-#include "G4EventManager.hh"
 #include "G4TrajectoryContainer.hh"
 #include "G4Trajectory.hh"
 #include "G4ios.hh"
@@ -26,8 +25,15 @@ EventAction::~EventAction()
 {}
 
 
-void EventAction::BeginOfEventAction(const G4Event*)
-{}
+void EventAction::BeginOfEventAction(const G4Event* evt)
+{
+  G4int eventNum = evt->GetEventID();
+  G4int eventNumMax = G4RunManager::GetRunManager()->GetNumberOfEventsToBeProcessed();
+  if (eventNum%100==0) {
+    G4cout 
+      << ">> Event: " << eventNum << " / " << eventNumMax << " = " << 100.*double(eventNum)/double(eventNumMax) << " %\n";
+  }
+}
 
 
 void EventAction::EndOfEventAction(const G4Event* event)

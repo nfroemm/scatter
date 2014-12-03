@@ -6,6 +6,9 @@
 #
 # Use this open statement to create an OpenGL view:
 /vis/open OGL 600x600-0+0
+#/vis/viewer/set/background 1.0 1.0 1.0
+#/vis/viewer/set/background 0.8 0.8 0.8
+ /vis/viewer/set/background 0.5 0.5 0.5
 #
 # Use this open statement to create an OpenInventor view:
 #/vis/open OIX

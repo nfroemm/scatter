@@ -10,19 +10,22 @@ DetectorMessenger::DetectorMessenger(DetectorConstruction* Det)
 : G4UImessenger(),
   fDetectorConstruction(Det)
 {
-  fB2Directory = new G4UIdirectory("/B2/");
-  fB2Directory->SetGuidance("UI commands specific to this example.");
+  fSimDirectory = new G4UIdirectory("/mySim/");
+  fSimDirectory->SetGuidance("UI commands specific to this application");
 
-  fDetDirectory = new G4UIdirectory("/B2/det/");
-  fDetDirectory->SetGuidance("Detector construction control");
+  fTargetThicknessCmd = new G4UIcmdWithADoubleAndUnit("/mySim/setTargetThickness",this);
+  fTargetThicknessCmd->SetGuidance("Set the thickness of the target");
+  fTargetThicknessCmd->SetParameterName("thickness",false);
+  fTargetThicknessCmd->SetUnitCategory("Length");
+  fTargetThicknessCmd->AvailableForStates(G4State_Idle);
 
-  fTargMatCmd = new G4UIcmdWithAString("/B2/det/setTargetMaterial",this);
-  fTargMatCmd->SetGuidance("Select Material of the Target.");
-  fTargMatCmd->SetParameterName("choice",false);
-  fTargMatCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+  fTargetMaterialCmd = new G4UIcmdWithAString("/mySim/setTargetMaterial",this);
+  fTargetMaterialCmd->SetGuidance("Set the material of the target");
+  fTargetMaterialCmd->SetParameterName("choice",false);
+  fTargetMaterialCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
 
-  fStepMaxCmd = new G4UIcmdWithADoubleAndUnit("/B2/det/stepMax",this);
-  fStepMaxCmd->SetGuidance("Define a step max");
+  fStepMaxCmd = new G4UIcmdWithADoubleAndUnit("/mySim/stepMax",this);
+  fStepMaxCmd->SetGuidance("Define the maximum step length");
   fStepMaxCmd->SetParameterName("stepMax",false);
   fStepMaxCmd->SetUnitCategory("Length");
   fStepMaxCmd->AvailableForStates(G4State_Idle);
@@ -31,21 +34,29 @@ DetectorMessenger::DetectorMessenger(DetectorConstruction* Det)
 
 DetectorMessenger::~DetectorMessenger()
 {
-  delete fTargMatCmd;
+  delete fSimDirectory;
+  delete fTargetThicknessCmd;
+  delete fTargetMaterialCmd;
   delete fStepMaxCmd;
-  delete fB2Directory;
-  delete fDetDirectory;
 }
 
 
 void DetectorMessenger::SetNewValue(G4UIcommand* command, G4String newValue)
 {
-  if (command==fTargMatCmd) {
-    fDetectorConstruction->SetTargetMaterial(newValue); return;
-
-  } else if (command==fStepMaxCmd) {
-    fDetectorConstruction->SetMaxStep(fStepMaxCmd->GetNewDoubleValue(newValue)); return;
-
+  // Set the target material
+  if (command==fTargetMaterialCmd) {
+    fDetectorConstruction->SetTargetMaterial(newValue);
+    return;
+  } 
+  // Set the target thickness
+  if (command==fTargetThicknessCmd) {
+    fDetectorConstruction->SetTargetThickness(fTargetThicknessCmd->GetNewDoubleValue(newValue));
+    return;
+  }
+  // Set the maximum step length
+  if (command==fStepMaxCmd) {
+    fDetectorConstruction->SetMaxStep(fStepMaxCmd->GetNewDoubleValue(newValue));
+    return;
   }
 }
 
