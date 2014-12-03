@@ -1,0 +1,68 @@
+# Set the target material, default particle, and momentum
+/gun/particle mu+
+/gun/momentumAmp 3.09435 GeV
+#
+/mySim/setTargetMaterial G4_GRAPHITE
+#
+/mySim/setTargetThickness   1 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr01mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness   2 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr02mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness   3 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr03mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness   4 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr04mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness   5 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr05mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness   6 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr06mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness   7 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr07mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness   8 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr08mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness   9 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr09mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness  10 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr10mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness  11 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr11mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness  12 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr12mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness  13 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr13mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness  14 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr14mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness  15 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr15mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness  16 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr16mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness  17 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr17mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness  18 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr18mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness  19 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr19mm.root
+/run/beamOn 1000000
+/mySim/setTargetThickness  20 mm
+/ROOT/setOutputFile root/muPlus_3094MeV_Gr20mm.root
+/run/beamOn 1000000
+#
+exit
